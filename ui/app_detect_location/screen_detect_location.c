@@ -120,7 +120,7 @@ static void do_fist_scan_work(scr_detect_location_cxt_t *cxt)
 **************************************************************************************************/
 static void update_mon_main_progress(scr_detect_location_cxt_t *cxt, int rssi)
 {
-    unused(cxt);
+    LOG_I("cxt = %p", cxt);
 
     int precent, val, range;
     int prog;

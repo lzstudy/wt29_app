@@ -49,8 +49,7 @@ static void print_usage(void)
 **************************************************************************************************/
 static void print_write_info(char *fmt, void *addr, uint32_t val)
 {
-    unused(fmt);
-    LOG_I("write [%d] to [%p]", val, addr);
+    LOG_I("write [%d] to [%p] %p", val, addr, fmt);
 }
 
 /**************************************************************************************************
