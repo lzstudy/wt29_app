@@ -202,5 +202,5 @@ void mon_mmp_init(mon_widget_t *widget)
 **************************************************************************************************/
 void lsh_dbg_cc(int argc, char const *argv[])
 {
-
+    LOG_I("%s", __func__);
 }

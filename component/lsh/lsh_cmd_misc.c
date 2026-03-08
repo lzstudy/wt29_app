@@ -11,6 +11,9 @@
 **************************************************************************************************/
 void lsh_cmd_version(int argc, char *argv[])
 {
+    unused(argc);
+    unused(argv);
+
     LOG_I("%d.%d.%d", MAJOR_VERSION, SLAVE_VERSION, PATH_VERSION);
 }
 
@@ -21,6 +24,8 @@ void lsh_cmd_version(int argc, char *argv[])
 **************************************************************************************************/
 void lsh_cmd_res(int argc, char *argv[])
 {
+    unused(argc);
+    unused(argv);
     LOG_I("%d x %d", lv_disp_get_hor_res(NULL), lv_disp_get_ver_res(NULL));
 }
 
@@ -31,5 +36,7 @@ void lsh_cmd_res(int argc, char *argv[])
 **************************************************************************************************/
 void lsh_cmd_reset(int argc, char *argv[])
 {
+    unused(argc);
+    unused(argv);
     NVIC_SystemReset();
 }

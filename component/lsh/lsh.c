@@ -36,6 +36,9 @@ void uart_recv_isr(uint8_t ch)
 **************************************************************************************************/
 void lsh_cmd_clear(int argc, char *argv[])
 {
+    unused(argc);
+    unused(argv);
+
     printf("\033[2J\033[H");
 }
 
@@ -46,6 +49,9 @@ void lsh_cmd_clear(int argc, char *argv[])
 **************************************************************************************************/
 void lsh_cmd_help(int argc, char *argv[])
 {
+    unused(argc);
+    unused(argv);
+
     lsh_cmd_info_t *item;
 
     for(uint8_t i = 0 ; i < ARRAY_SIZE(sci_table) ; i++) {
@@ -62,6 +68,8 @@ void lsh_cmd_help(int argc, char *argv[])
 **************************************************************************************************/
 int process_cmd_sys(lsh_context *cxt, int argc, char *argv[])
 {
+    unused(cxt);
+
     char ch;
     char *cmd;
     lsh_cmd_info_t *item;
@@ -450,7 +458,7 @@ static void quick_key_ctrl_x(lsh_context *cxt)
     if(mgc->line_curpos == 0)
     {
         for(int i = 0; i < mgc->line_pos; i++)
-        printf("\033[1C");
+            printf("\033[1C");
 
         mgc->line_curpos = mgc->line_pos;
         return;

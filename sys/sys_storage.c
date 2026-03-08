@@ -21,6 +21,7 @@
 **************************************************************************************************/
 static void fstorage_evt_handler(nrf_fstorage_evt_t * p_evt)
 {
+    LOG_I("%s", __func__);
 }
 
 NRF_FSTORAGE_DEF(nrf_fstorage_t fstorage) = {

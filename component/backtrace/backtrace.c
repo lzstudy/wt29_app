@@ -5,6 +5,7 @@
 #include "nrf.h"
 #include "bsp.h"
 #include "nrf_drv_uart.h"
+#include "common.h"
 
 static nrfx_uarte_t uart = NRFX_UARTE_INSTANCE(1);
 
@@ -48,6 +49,7 @@ static void uart_reinit(void)
 **************************************************************************************************/
 void hardfault_handler(uint32_t *stack_address)
 {
+    unused(stack_address);
 #if 0
     uart_reinit();
 #endif

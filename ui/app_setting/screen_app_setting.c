@@ -305,7 +305,7 @@ static void screen_life_destory(void *arg)
 **************************************************************************************************/
 static void screen_life_running(void *arg)
 {
-
+    LOG_I("%s", __func__);
 }
 
 
