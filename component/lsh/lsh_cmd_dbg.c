@@ -11,6 +11,8 @@
 **************************************************************************************************/
 void lsh_dbg_test(int argc, char *argv[])
 {
+    unused(argc);
+    unused(argv);
     LOG_I("dbg teest %d", argc);
 }
 

@@ -49,6 +49,7 @@ static void print_usage(void)
 **************************************************************************************************/
 static void print_write_info(char *fmt, void *addr, uint32_t val)
 {
+    unused(fmt);
     LOG_I("write [%d] to [%p]", val, addr);
 }
 
@@ -150,6 +151,8 @@ static void lsh_mm_dump(void *start, uint32_t size, uint8_t width, uint8_t colum
 **************************************************************************************************/
 static void lsh_mm_read_simple(int argc, char const *argv[])
 {
+    unused(argc);
+
     size_t val;
     void *addr = (void *)strtoul(argv[2], NULL, 0);
 
@@ -164,6 +167,8 @@ static void lsh_mm_read_simple(int argc, char const *argv[])
 **************************************************************************************************/
 static void lsh_mm_read_burst(int argc, char const *argv[])
 {
+    unused(argc);
+
     void *addr;
     uint16_t size;
     
@@ -181,6 +186,8 @@ static void lsh_mm_read_burst(int argc, char const *argv[])
 **************************************************************************************************/
 static void lsh_mm_read_stand(int argc, char const *argv[])
 {
+    unused(argc);
+
     void *addr;
     uint16_t size;
     uint8_t width, colum;
@@ -240,6 +247,8 @@ static void lsh_mm_read(int argc, char const *argv[])
 **************************************************************************************************/
 static void lsh_mm_write_simple(int argc, char const *argv[])
 {
+    unused(argc);
+
     void *addr = (void *)strtoul(argv[2], NULL, 0);
     size_t val = strtoul(argv[3], NULL, 0);
 
@@ -255,6 +264,8 @@ static void lsh_mm_write_simple(int argc, char const *argv[])
 **************************************************************************************************/
 static void lsh_mm_write_stand(int argc, char const *argv[])
 {
+    unused(argc);
+
     uint8_t *addr = (uint8_t *)strtoul(argv[2], NULL, 0);
     uint8_t value = strtoul(argv[3], NULL, 0);
     uint16_t size = strtoul(argv[4], NULL, 0);
@@ -280,6 +291,9 @@ static void lsh_mm_write(int argc, char const *argv[])
     case 5:
         lsh_mm_write_stand(argc, argv);
         break;
+
+    default:
+        break;
     }
 }
 
@@ -295,6 +309,8 @@ static cmd_opt_map_t mm_map_tbl[] = {
 **************************************************************************************************/
 static void mm_quick_read(int argc, char const *argv[])
 {
+    unused(argc);
+
     void *addr = (void *)strtoul(argv[1], NULL, 0);
     uint32_t val = *(uint32_t *)addr;
 
@@ -308,6 +324,8 @@ static void mm_quick_read(int argc, char const *argv[])
 **************************************************************************************************/
 static void mm_quick_write(int argc, char const *argv[])
 {
+    unused(argc);
+
     void *addr = (void *)strtoul(argv[1], NULL, 0);
     size_t val = strtoul(argv[2], NULL, 0);
 
@@ -332,6 +350,9 @@ static bool mm_quick_cmd(int argc, char const *argv[])
     case 3:
         mm_quick_write(argc, argv);
         return true;
+
+    default:
+        break;
     }
 
     return false;

@@ -68,14 +68,11 @@ void lsh_cmd_help(int argc, char *argv[])
 **************************************************************************************************/
 int process_cmd_sys(int argc, char *argv[])
 {
-
-    char ch;
     char *cmd;
     lsh_cmd_info_t *item;
 
     /* 默认在起始位置 */
     cmd = argv[0];
-    ch = cmd[0];
 
     /* 执行内置命令 */
     for(uint8_t i = 0 ; i < ARRAY_SIZE(sci_table) ; i++) 
@@ -117,6 +114,7 @@ void lsh_process_cmd(lsh_context *cxt, int argc, char *argv[])
 **************************************************************************************************/
 void lsh_print_prompt(lsh_context *cxt)
 {
+    unused(cxt);
     printf("lsh> ");
 }
 
@@ -579,7 +577,6 @@ void lsh_cmd_parse(lsh_context *cxt, char ch)
     }
 
     /* 保持用户输入的字符 */
-    ch = 0;
     mgc->line_curpos++;
     mgc->line_pos++;
 }
