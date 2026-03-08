@@ -194,7 +194,7 @@ void gui_key_init(void)
     gui_key_ev_t *kev = &screen_manager.kev;
 
     /* 初始化信号量 */
-    kev->sem = xSemaphoreCreateCounting(3, 0);  // xSemaphoreCreateMutex(); //xSemaphoreCreateCounting(3, 0);
+    kev->sem = xSemaphoreCreateCounting(3, 0); 
 
     /* 初始化状态 */
     kev->ev_up   = 0;

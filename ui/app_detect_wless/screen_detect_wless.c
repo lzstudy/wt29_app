@@ -92,7 +92,6 @@ static void screen_life_running(void *arg)
     prog = wless_val_to_prog(filter_val);
 
     LOG_I("raw %d, fileter %d, prog %d", value, filter_val, prog);
-    // nrf_delay_ms(500);
 
     /* 更新进度条 */
     mon_widget_main_attr_set(MON_MAIN_ATTR_PROG, (void *)prog);
