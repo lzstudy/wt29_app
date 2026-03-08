@@ -27,7 +27,7 @@ bool check_cycle(uint32_t *time, uint32_t cycle)
 **************************************************************************************************/
 int slider_filter_process(sliding_filter_t *filter, int rssi)
 {
-    unused(filter);
+    filter->buf[filter->index] = rssi;
     return rssi;
 #if 0
     int min, max, tmp;
