@@ -237,42 +237,6 @@ static void shell_push_history(lsh_context *cxt)
 {
     lsh_mgc_lsh *mgc = &cxt->mgc_lsh;
 
-    if (mgc->line_pos != 0)
-    {
-        /* push history */
-        if (mgc->history_count >= LSH_HISTORY_LINES)
-        {
-            /* if current cmd is same as last cmd, don't push */
-            if (memcmp(&mgc->cmd_history[LSH_HISTORY_LINES - 1], mgc->line, LSH_CMD_SIZE))
-            {
-                /* move history */
-                int index;
-                for (index = 0; index < LSH_HISTORY_LINES - 1; index ++)
-                {
-                    memcpy(&mgc->cmd_history[index][0],
-                           &mgc->cmd_history[index + 1][0], LSH_CMD_SIZE);
-                }
-                memset(&mgc->cmd_history[index][0], 0, LSH_CMD_SIZE);
-                memcpy(&mgc->cmd_history[index][0], mgc->line, mgc->line_pos);
-
-                /* it's the maximum history */
-                mgc->history_count = LSH_HISTORY_LINES;
-            }
-        }
-        else
-        {
-            /* if current cmd is same as last cmd, don't push */
-            if (mgc->history_count == 0 || memcmp(&mgc->cmd_history[mgc->history_count - 1], mgc->line, LSH_CMD_SIZE))
-            {
-                mgc->current_history = mgc->history_count;
-                memset(&mgc->cmd_history[mgc->history_count][0], 0, LSH_CMD_SIZE);
-                memcpy(&mgc->cmd_history[mgc->history_count][0], mgc->line, mgc->line_pos);
-
-                /* increase count and set current history position */
-                mgc->history_count ++;
-            }
-        }
-    }
     mgc->current_history = mgc->history_count;
 }
 

@@ -199,7 +199,7 @@ static void msgbus_set_client_attr(msgbus_client_t *client, msgbus_client_attr_t
 /* 消息总线ops */
 static const msgbus_ops_t msgbus_ops = {
     .init = msgbus_init,
-    .register_topic = msgbus_register_topic,
+    .register_topic = &msgbus_register_topic,
     .unregister_topic = msgbus_unregister_topic,
     .publish_topic = msgbus_publish_topic,
     .subscribe_topic = msgbus_subscribe_topic,
@@ -309,8 +309,8 @@ static void topic_cmd_delete(int argc, char *argv[])
 }
 
 static cmd_opt_map_t topic_map_tbl[] = {
-    {"-s",  topic_cmd_set},
-    {"-d",  topic_cmd_delete},
+    {"-s",  &topic_cmd_set},
+    {"-d",  &topic_cmd_delete},
     {NULL,  NULL}
 };
 
