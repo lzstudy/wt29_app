@@ -92,7 +92,8 @@ static int msgbus_register_topic(const char *name)
 static void msgbus_unregister_topic(const char *name)
 {
     msgbus_topic_t *topic;
-    msgbus_client_t *client;
+
+    
 
     /* 查找topic */
     topic = find_topic(name);

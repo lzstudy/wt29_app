@@ -1,6 +1,7 @@
 #include <stdbool.h>
 #include "screen_utils.h"
 #include "screen_core.h"
+#include "common.h"
 
 /**************************************************************************************************
  * @brief  : 周期检测
@@ -26,6 +27,7 @@ bool check_cycle(uint32_t *time, uint32_t cycle)
 **************************************************************************************************/
 int slider_filter_process(sliding_filter_t *filter, int rssi)
 {
+    unused(filter);
     return rssi;
 #if 0
     int min, max, tmp;
