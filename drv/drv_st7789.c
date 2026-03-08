@@ -211,7 +211,6 @@ void st7780_set_window(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2)
 	st7789_write_data((x1+0x23) & 0xFF);
 	st7789_write_data((x2 >> 8) & 0xFF);
 	st7789_write_data((x2+0x23) & 0xFF);
-	//st7789_write_command(0x2c);	
 
 	st7789_write_command(0x2B);
 	st7789_write_data((y1 >> 8) & 0xFF);

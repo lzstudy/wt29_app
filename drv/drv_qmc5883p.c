@@ -5,6 +5,7 @@
 #include "common.h"
 #include "app_error.h"
 #include "drv_qmc5883p.h"
+#include "lsh.h"
 
 #define QMC5883P_ADDR   0x2C                                                    /**< 器件地址 */
 #define IIC_SCL		    NRF_GPIO_PIN_MAP(0, 11)
@@ -185,7 +186,7 @@ void lsh_dbg_qmc5883p(int argc, char *argv[])
 
 
 /*================================================ I2C1控制 ================================================*/
-#include "lsh.h"
+
 
 /**************************************************************************************************
  * @brief  : 打印用法
@@ -236,6 +237,8 @@ static void i2c_write(uint8_t addr, uint8_t reg, uint8_t val)
 **************************************************************************************************/
 static void i2c1_read(int argc, char const *argv[])
 {
+    unused(argc);
+
     uint8_t val, len;
     uint8_t addr = strtol(argv[2], NULL, 0);
     uint8_t reg = strtol(argv[3], NULL, 0);
@@ -263,6 +266,8 @@ static void i2c1_read(int argc, char const *argv[])
 **************************************************************************************************/
 static void i2c1_write(int argc, char const *argv[])
 {
+    unused(argc);
+
     uint8_t addr = strtol(argv[2], NULL, 0);
     uint8_t reg = strtol(argv[3], NULL, 0);
     uint8_t val = strtol(argv[4], NULL, 0);

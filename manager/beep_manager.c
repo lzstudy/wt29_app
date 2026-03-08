@@ -27,11 +27,8 @@ static inline beep_manager_context_t *get_beep_manager_context(void)
 **************************************************************************************************/
 static void beep_manager_init(void)
 {
-    system_setting_info_t *system_setting;
     beep_manager_context_t *cxt = get_beep_manager_context();
 
-    /* 获取设置信息 */
-    system_setting = get_system_setting_info();
 
     cxt->state = 0;
     beep_init();

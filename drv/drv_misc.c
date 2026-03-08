@@ -91,6 +91,9 @@ void ir_troggle(void)
 **************************************************************************************************/
 void lsh_cmd_ir(int argc, char *argv[])
 {
+    unused(argc);
+    unused(argv);
+    
     uint8_t val = atoi(argv[1]);
 	ir_set(val);
 }
@@ -102,6 +105,9 @@ void lsh_cmd_ir(int argc, char *argv[])
 **************************************************************************************************/
 void lsh_cmd_motor(int argc, char *argv[])
 {
+    unused(argc);
+    unused(argv);
+
     int time = atoi(argv[1]);
 
     for(int i = 0 ; i < 10 ; i++)

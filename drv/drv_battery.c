@@ -71,6 +71,9 @@ bat_state_t get_bat_state(void)
 **************************************************************************************************/
 void lsh_dbg_bat_stat(int argc, char *argv[])
 {
+	unused(argc);
+	unused(argv);
+
 	int power;
 	int pin_chrg, pin_stdby;
 

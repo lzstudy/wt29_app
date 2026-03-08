@@ -84,6 +84,9 @@ magentic_manager_ops_t *magentic_manager(void)
 /*------------------------ 调试接口 ------------------------*/
 void lsh_dbg_magentic(int argc, char *argv[])
 {
+    unused(argc);
+    unused(argv);
+
     int16_t x, y, z;
     
     for(;;)

@@ -70,24 +70,7 @@ static void print_sn_info(void)
 **************************************************************************************************/
 static void write_sn_info(uint64_t sn)
 {
-    uint32_t sn_l = (uint32_t)(sn & 0xFFFFFFFF); 
-    uint32_t sn_h = (uint32_t)(sn >> 32);
-
-    LOG_I("sn_l = %x, sn_h = %x", sn_l, sn_h);
-
-    sleep(1);
-
-    // 2. 使能NVMC写操作
-    NRF_NVMC->CONFIG = NVMC_CONFIG_WEN_Wen;
-    while (NRF_NVMC->READY == NVMC_READY_READY_Busy) {}
-		
-
-    // 4. 等待写入完成
-    while (NRF_NVMC->READY == NVMC_READY_READY_Busy) {}
-
-    // 5. 关闭写使能
-    NRF_NVMC->CONFIG = NVMC_CONFIG_WEN_Ren;
-    while (NRF_NVMC->READY == NVMC_READY_READY_Busy) {}
+    LOG_I("sn = %llx", sn);
 }
 
 

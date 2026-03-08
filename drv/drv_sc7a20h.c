@@ -200,6 +200,7 @@ static void i2c_write(uint8_t addr, uint8_t reg, uint8_t val)
 **************************************************************************************************/
 static void i2c0_read(int argc, char const *argv[])
 {
+    unused(argc);
     uint8_t val, len;
     uint8_t addr = strtol(argv[2], NULL, 0);
     uint8_t reg = strtol(argv[3], NULL, 0);
@@ -227,6 +228,7 @@ static void i2c0_read(int argc, char const *argv[])
 **************************************************************************************************/
 static void i2c0_write(int argc, char const *argv[])
 {   
+    unused(argc);
     uint8_t addr = strtol(argv[2], NULL, 0);
     uint8_t reg = strtol(argv[3], NULL, 0);
     uint8_t val = strtol(argv[4], NULL, 0);

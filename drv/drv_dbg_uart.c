@@ -50,7 +50,6 @@ void uart_error_handle(app_uart_evt_t * p_event)
 		/* 从FIFO中读取数据  并回显 */
         app_uart_get(&ch);
         uart_recv_isr(ch);
-	    // printf("%c",ch);
     }
 }
 

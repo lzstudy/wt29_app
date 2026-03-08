@@ -31,6 +31,9 @@ static inline timer_manager_context_t *get_timer_manager_context(void)
 **************************************************************************************************/
 static void timer_event_isr(void *data, uint16_t len, void *priv)
 {
+    unused(data);
+    unused(len);
+
     timer_manager_context_t *cxt = priv;
 
     /* 回调定时器事件 */
@@ -144,6 +147,7 @@ timer_manager_ops_t *timer_manager(void)
 /*===============================================================================*/
 static void test_timer_isr(void* priv)
 {
+    unused(priv);
     beep_manager()->toggle();
 }
 
@@ -154,6 +158,7 @@ static void test_timer_isr(void* priv)
 **************************************************************************************************/
 void lsh_dbg_timer(int argc, char *argv[])
 {
+    unused(argc);
     int index = atoi(argv[1]);
     uint16_t cycle;
 
