@@ -128,79 +128,11 @@ void lsh_print_prompt(lsh_context *cxt)
 **************************************************************************************************/
 static int split_lsh_cmd(lsh_context *cxt, char *cmd, uint16_t length, char *argv[LSH_ARG_MAX])
 {
-    char *ptr;
-    int i, argc, position;
+    unused(argv)
+    unused(length)
+    strncpy(cxt->mgc_lsh.line, cmd, sizeof(cxt->mgc_lsh.line));
 
-    ptr = cmd;
-    position = 0;
-    argc = 0;
-
-    while (position < length)
-    {
-        /* strip bank and tab */
-        while ((*ptr == ' ' || *ptr == '\t') && position < length)
-        {
-            *ptr = '\0';
-            ptr ++;
-            position ++;
-        }
-
-        if (argc >= LSH_ARG_MAX)
-        {
-            printf("Too many args ! We only Use:\n");
-            for (i = 0; i < argc; i++)
-            {
-                printf("%s ", argv[i]);
-            }
-            printf("\n");
-            break;
-        }
-
-        if (position >= length) break;
-
-        /* handle string */
-        if (*ptr == '"')
-        {
-            ptr ++;
-            position ++;
-            argv[argc] = ptr;
-            argc ++;
-
-            /* skip this string */
-            while (*ptr != '"' && position < length)
-            {
-                if (*ptr == '\\')
-                {
-                    if (*(ptr + 1) == '"')
-                    {
-                        ptr ++;
-                        position ++;
-                    }
-                }
-                ptr ++;
-                position ++;
-            }
-            if (position >= length) break;
-
-            /* skip '"' */
-            *ptr = '\0';
-            ptr ++;
-            position ++;
-        }
-        else
-        {
-            argv[argc] = ptr;
-            argc ++;
-            while ((*ptr != ' ' && *ptr != '\t') && position < length)
-            {
-                ptr ++;
-                position ++;
-            }
-            if (position >= length) break;
-        }
-    }
-
-    return argc;
+    return 0;
 }
 
 /**************************************************************************************************
@@ -249,8 +181,8 @@ int lsh_lsh_exec(lsh_context *cxt, char *cmd)
     memset(mgc->line_bak, 0, sizeof(mgc->line_bak));
 
     /* 拷贝新命令 */
-    strcpy(mgc->line, cmd);
-    strcpy(mgc->line_bak, cmd);
+    strncpy(mgc->line, cmd, sizeof(mgc->line));
+    strncpy(mgc->line_bak, cmd, sizeof(mgc->line));
 
     /* 处理命令 */
     argc = split_lsh_cmd(cxt, cmd, strlen(cmd), argv);

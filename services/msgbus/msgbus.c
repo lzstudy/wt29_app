@@ -47,7 +47,7 @@ static msgbus_topic_t *find_topic(const char *name)
  * @param  : None
  * @return : None
 **************************************************************************************************/
-int msgbus_init(void)
+static int msgbus_init(void)
 {
     msgbus_service_t *service = &msgbus_service;
     list_init(&service->head);
@@ -134,7 +134,8 @@ static void msgbus_publish_topic(const char *name, void *data, uint16_t len)
     /* 寻找client */
     list_for_each_client(client, &topic->head_client)
     {
-        client->cb(data, len, client->priv);
+        if(client->cb)
+            client->cb(data, len, client->priv);
     }
 }
 
