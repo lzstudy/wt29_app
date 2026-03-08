@@ -171,6 +171,7 @@ static int msgbus_unsubscribe_topic(msgbus_client_t *client)
 {
     list_del(&client->list);
     free(client);
+    return 0;
 }
 
 /**************************************************************************************************

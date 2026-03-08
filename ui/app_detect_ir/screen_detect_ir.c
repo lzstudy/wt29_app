@@ -66,7 +66,9 @@ static int ir_val_to_prog(uint16_t value)
         return MON_MAIN_PROG_MAX;
 
     if(prog <= 0)
-        return 0;    
+        return 0;
+        
+    return prog;
 }
 
 /**************************************************************************************************

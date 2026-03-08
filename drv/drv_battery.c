@@ -60,6 +60,8 @@ bat_state_t get_bat_state(void)
 	/* 表示充满 */
 	if(pin_chrg == 0 && pin_stdby == 1)
 		return BAT_STAT_FULLY;
+
+	return BAT_STAT_UNCHARGE;
 }
 
 /**************************************************************************************************

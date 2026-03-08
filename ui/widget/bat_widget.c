@@ -102,7 +102,7 @@ static uint8_t power_to_progress(int16_t pow)
         return 3;
     else if(pow >= 3310 && pow < 3550)
         return 4;
-    else if(pow >= 3550)
+    else
         return 5;
 }
 
