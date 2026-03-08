@@ -101,11 +101,13 @@ static void msgbus_unregister_topic(const char *name)
         return;
     }
 
+#if 0
     /* 遍历链表删除client */
     list_for_each_client(client, &topic->head_client) {
         list_del(&client->list);
         free(client);
     }
+#endif
 
     /* 删除topic */
     list_del(&topic->list);

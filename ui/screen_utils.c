@@ -26,6 +26,8 @@ bool check_cycle(uint32_t *time, uint32_t cycle)
 **************************************************************************************************/
 int slider_filter_process(sliding_filter_t *filter, int rssi)
 {
+    return rssi;
+#if 0
     int min, max, tmp;
     int sum = 0;
 
@@ -73,6 +75,7 @@ int slider_filter_process(sliding_filter_t *filter, int rssi)
         sum++;
 
     return (int)(sum / (FILTER_SIZE - 2));
+#endif
 }
 
 /**************************************************************************************************
