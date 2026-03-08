@@ -29,6 +29,10 @@ int slider_filter_process(sliding_filter_t *filter, int rssi)
     int min, max, tmp;
     int sum = 0;
 
+    if(filter->index == 0) {
+        return rssi;
+    }
+
     /* 更新缓冲区 */
     filter->buf[filter->index] = rssi;
     filter->index = (filter->index + 1) % FILTER_SIZE;
@@ -65,6 +69,9 @@ int slider_filter_process(sliding_filter_t *filter, int rssi)
 
     /* 3. 剔除最大值和最小值后求平均 */
     sum = sum - min - max;
+    if(sum == 2)
+        sum++;
+
     return (int)(sum / (FILTER_SIZE - 2));
 }
 

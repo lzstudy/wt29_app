@@ -117,7 +117,6 @@ static lv_obj_t *create_bat_cell(lv_obj_t *parent)
     lv_img_set_src(image, &pic_bat);
 
     lv_obj_align(image, LV_ALIGN_TOP_MID, 0, 0);
-
     return image;
 }
 
@@ -229,7 +228,7 @@ void bat_widget_set_state(bat_state_t state, uint8_t prog)
     }
 
     /* 最大进度, 表示充满 */
-    if(prog >= MON_BAT_CNT) {
+    if(prog >= MON_BAT_CNT && state == BAT_STAT_FULLY) {
         lv_obj_set_visual(widget->icon_bat_charging, 0);
         lv_obj_set_visual(widget->icon_bat_full, 1);
         return;
