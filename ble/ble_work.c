@@ -48,7 +48,7 @@ static void nrf_qwr_error_handler(uint32_t nrf_error)
 **************************************************************************************************/
 static void ble_evt_handler(ble_evt_t const * p_ble_evt, void * p_context)
 {
-
+    LOG_I("ble_evt_handler");
 }
 
 /**************************************************************************************************
@@ -58,6 +58,7 @@ static void ble_evt_handler(ble_evt_t const * p_ble_evt, void * p_context)
 **************************************************************************************************/
 static void ble_adv_evt_handler(ble_adv_evt_t ble_adv_evt)
 {
+    LOG_I("ble_adv_evt_handler");
 }
 
 /**************************************************************************************************
@@ -112,7 +113,7 @@ static void pm_evt_handler(pm_evt_t const * p_evt)
 **************************************************************************************************/
 static void ble_nus_sevices_init(void)
 {
-    
+    LOG_I("ble_nus_sevices_init");
 }
 
 /**************************************************************************************************

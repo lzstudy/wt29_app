@@ -65,7 +65,7 @@ void bat_widget_set_progress(uint8_t progress)
     }
 
     /* 传入进度大于当前进度, 增长1格 */
-    if(progress > widget->prog); {
+    if(progress > widget->prog) {
         lv_obj_set_visual(widget->item[progress - 1], 1);
         widget->prog = progress;
         return;

@@ -21,6 +21,8 @@ typedef struct _scr_detect_ir_cxt {
 **************************************************************************************************/
 static void screen_life_post(void *arg)
 {
+    unused(arg);
+
     scr_detect_ir_cxt_t *cxt = calloc(sizeof(*cxt), 1);
 	
     /* 设置mon参数 */

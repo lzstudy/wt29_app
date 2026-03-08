@@ -8,7 +8,7 @@
 #define FILE_NAME(x)                    (strrchr(x, '/') ? strrchr(x, '/') + 1 : x)
 
 /* 标准打印 */
-#define LOG_I(fmt, ...)                 printf(fmt"\n", ##__VA_ARGS__);
+#define LOG_I(fmt, ...)                 printf(fmt"\n", ##__VA_ARGS__)
 #define DBG_I(fmt, ...)
 
 /* 打印行 */

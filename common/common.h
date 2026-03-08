@@ -6,4 +6,5 @@
 #include "ckret.h"
 #include "misc.h"
 
+#define unused(x) (void)(x)
 #endif
