@@ -509,7 +509,7 @@ void lsh_cmd_parse(lsh_context *cxt, char ch)
 
             /* move the cursor to the origin position */
             for (i = mgc->line_curpos; i <= mgc->line_pos; i++)
-            printf("\b");
+                printf("\b");
         }
         else
         {

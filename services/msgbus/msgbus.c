@@ -198,10 +198,10 @@ static void msgbus_set_client_attr(msgbus_client_t *client, msgbus_client_attr_t
 
 /* 消息总线ops */
 static const msgbus_ops_t msgbus_ops = {
-    .init = msgbus_init,
+    .init = &msgbus_init,
     .register_topic = &msgbus_register_topic,
     .unregister_topic = msgbus_unregister_topic,
-    .publish_topic = msgbus_publish_topic,
+    .publish_topic = &msgbus_publish_topic,
     .subscribe_topic = msgbus_subscribe_topic,
     .unsubscribe_topic = msgbus_unsubscribe_topic,
     .set_client_attr = msgbus_set_client_attr,
@@ -331,7 +331,7 @@ static void lsh_publish_topic(const char *name, const char *val)
 
     /* 按数字发布 */
     data = strtoul(val, NULL, 0);
-    msgbus_publish_topic(name, &data, sizeof(data));
+    msgbus_publish_topic(name, (void *)&data, sizeof(data));
 }
 
 /**************************************************************************************************
