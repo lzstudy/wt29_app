@@ -68,7 +68,7 @@ static int wless_val_to_prog(uint16_t value)
     if(prog <= 0)
         return 0;    
 
-    return prog
+    return prog;
 }
 
 /**************************************************************************************************

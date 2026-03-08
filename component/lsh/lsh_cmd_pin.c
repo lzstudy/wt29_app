@@ -69,7 +69,7 @@ void lsh_cmd_pinmap(int argc, char const *argv[])
     uint32_t result;
 
     if(argc < 2) {
-        LOG_I("usage : pinmap <port> <pin>")
+        LOG_I("usage : pinmap <port> <pin>");
         return;
     }
 
