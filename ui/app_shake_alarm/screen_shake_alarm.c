@@ -73,6 +73,8 @@ static void create_shake_alarm_label(scr_shake_alarm_cxt_t *cxt)
 **************************************************************************************************/
 static void accel_topic_event(void *data, uint16_t len, void *priv)
 {
+    unused(data);
+    unused(len);
     scr_shake_alarm_cxt_t *cxt = priv;
 
     /* 之前在就绪态, 则进入报警态 */
@@ -243,6 +245,7 @@ static screen_life_ops_t shake_alarm_sl_ops = {
 **************************************************************************************************/
 static void up_key_event(void *arg)
 {
+    unused(arg);
     toggle_screen("main");
 }
 
@@ -253,6 +256,7 @@ static void up_key_event(void *arg)
 **************************************************************************************************/
 static void down_key_event(void *arg)
 {
+    unused(arg);
     toggle_screen("main");
 }
 
@@ -263,6 +267,7 @@ static void down_key_event(void *arg)
 **************************************************************************************************/
 static void ctrl_key_event(void *arg)
 {
+    unused(arg);
     toggle_screen("main");
 }
 

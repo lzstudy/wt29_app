@@ -23,6 +23,7 @@ typedef struct _scr_detect_wless_cxt {
 **************************************************************************************************/
 static void screen_life_post(void *arg)
 {
+    unused(arg);
     scr_detect_wless_cxt_t *cxt = calloc(sizeof(*cxt), 1);
 
     /* 设置mon参数 */
@@ -135,6 +136,7 @@ static void key_down_event(void *arg)
 **************************************************************************************************/
 static void key_ctrl_event(void *arg)
 {
+    unused(arg);
     toggle_screen("main");
 }
 

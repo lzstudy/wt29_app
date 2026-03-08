@@ -9,6 +9,7 @@
 **************************************************************************************************/
 static void main_sl_post(void *arg)
 {
+    unused(arg);
     LOG_I("%s", __func__);
 }
 
@@ -19,6 +20,7 @@ static void main_sl_post(void *arg)
 **************************************************************************************************/
 static void main_sl_destory(void *arg)
 {
+    unused(arg);
     LOG_I("%s", __func__);
 }
 
@@ -35,6 +37,7 @@ static screen_life_ops_t main_sl_ops = {
 **************************************************************************************************/
 static void main_scr_kev_up(void *arg)
 {
+    unused(arg);
     LOG_I("%s", __func__);
 }
 
@@ -45,6 +48,7 @@ static void main_scr_kev_up(void *arg)
 **************************************************************************************************/
 static void main_scr_kev_down(void *arg)
 {
+    unused(arg);
     LOG_I("%s", __func__);
 }
 
@@ -55,6 +59,7 @@ static void main_scr_kev_down(void *arg)
 **************************************************************************************************/
 static void main_scr_kev_ctrl(void *arg)
 {
+    unused(arg);
     LOG_I("%s", __func__);
 }
 

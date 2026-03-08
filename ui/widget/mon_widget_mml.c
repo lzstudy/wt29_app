@@ -106,6 +106,9 @@ void set_mon_main_level(mon_main_level_t *mml, mon_main_level_type_t level)
     case MON_MAIN_LEVEL_SUB:
         mon_main_level_sub(mml);
         break;
+
+    default:
+        break;
     }
 }
 
@@ -137,7 +140,6 @@ static void create_mon_mml_item(mon_widget_t *widget)
     /* 创建16个进度 - 默认为红色 */
     for(int i = 0 ; i < MON_MAIN_CNT ; i++)
     {
-        // create_mon_mml_cell(widget->parent, &core->style, LV_PALETTE_RED);
         mml->item[i] = create_mon_mml_cell(widget->parent, &core->style, LV_PALETTE_RED);
         lv_obj_set_y(mml->item[i], pos_y);
         pos_y -= MON_MAIN_INTERVAL;

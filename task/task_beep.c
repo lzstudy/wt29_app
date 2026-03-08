@@ -20,7 +20,5 @@ void beep_task_entry(void *arg)
             beep_stop();
             beep_flag = 0;
         }
-
-        // sleep(1);
     }
 }

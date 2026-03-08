@@ -160,6 +160,7 @@ static void toggle_shake_notice(scr_setting_cxt_t *cxt, system_setting_info_t *s
 **************************************************************************************************/
 static void back_home_event(scr_setting_cxt_t *cxt, system_setting_info_t *setting)
 {
+    LOG_I("cxt = %p %p", cxt, setting);
     save_system_setting_info();
     toggle_screen("main");
 }
@@ -305,6 +306,7 @@ static void screen_life_destory(void *arg)
 **************************************************************************************************/
 static void screen_life_running(void *arg)
 {
+    unused(arg);
     LOG_I("%s", __func__);
 }
 

@@ -207,7 +207,7 @@ static void bat_widget_uncharge(bat_widget_t *widget)
 
     /* 设置进度条 */
     bat_widget_set_progress(progress);
-    LOG_I("battery pow = %d", pow);
+    LOG_I("battery pow = %d %p", pow, widget);
 }
 
 /**************************************************************************************************

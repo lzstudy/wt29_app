@@ -127,12 +127,10 @@ void toggle_screen(const char *name)
     screen_manager_t *mg = &screen_manager;
 
     /* 删除当前的屏幕, 主屏幕不删除 */
-    if(mg->current)  
+    if(mg->current && strcmp(mg->current->name, screen_main.name) != 0)  
     {
-        if(strcmp(mg->current->name, screen_main.name) != 0)
-        {
-            do_screen_destory(mg);
-        }
+        do_screen_destory(mg);
+
     }
 
     /* 遍历scr链表, 匹配名字, 找到对应的gui_screen_t */

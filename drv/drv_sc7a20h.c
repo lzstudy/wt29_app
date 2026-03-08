@@ -216,7 +216,8 @@ static void i2c0_read(int argc, char const *argv[])
     len = strtol(argv[4], NULL, 0); 
     while(len--) 
     {
-        val = i2c_read(addr, reg++);
+        val = i2c_read(addr, reg);
+        reg++;
         printf("%02x ", val);
     }
     printf("\n");

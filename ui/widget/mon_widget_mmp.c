@@ -29,6 +29,7 @@ static uint32_t beep_cycle[] = {
 **************************************************************************************************/
 static void mon_timer_event(void *priv)
 {
+    LOG_I("addr = %p", priv);
     beep_manager()->toggle();
 }
 
@@ -202,5 +203,7 @@ void mon_mmp_init(mon_widget_t *widget)
 **************************************************************************************************/
 void lsh_dbg_cc(int argc, char const *argv[])
 {
+    unused(argc);
+    unused(argv);
     LOG_I("%s", __func__);
 }

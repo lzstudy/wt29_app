@@ -31,8 +31,4 @@ typedef enum _mon_widget_sub_attr {
     MON_SUB_ATTR_PROG,                                                          /**< 子进度 */
 }mon_widget_sub_attr_t;
 
-// typedef enum _mon_widget_misc_attr {
-//     MON_MISC_ATTR_
-// }mon_widget_misc_attr;
-
 #endif

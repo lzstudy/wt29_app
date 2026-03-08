@@ -106,6 +106,7 @@ void main_screen_init(void)
 **************************************************************************************************/
 static void screen_life_post(void *arg)
 {
+    unused(arg);
     save_screen_cxt(&scr_main_cxt);
 }
 
@@ -116,6 +117,7 @@ static void screen_life_post(void *arg)
 **************************************************************************************************/
 static void screen_life_destory(void *arg)
 {
+    unused(arg);
     LOG_I("%s", __func__);
 }
 

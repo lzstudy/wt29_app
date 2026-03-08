@@ -19,6 +19,7 @@ typedef struct _scr_detect_magentic_cxt {
 **************************************************************************************************/
 static void screen_life_post(void *arg)
 {
+    unused(arg);
     scr_detect_magentic_cxt_t *cxt = calloc(sizeof(*cxt), 1);
 	
     /* 设置mon参数 */
@@ -46,7 +47,6 @@ static void screen_life_destory(void *arg)
     free(cxt);                                          // 释放cxt
 }
 
-static uint8_t zw_test = 0;
 /**************************************************************************************************
  * @brief  : detect_magentic生命周期 - 运行
  * @param  : None
@@ -54,7 +54,8 @@ static uint8_t zw_test = 0;
 **************************************************************************************************/
 static void screen_life_running(void *arg)
 {
-    mon_widget_main_attr_set(MON_MAIN_ATTR_PROG, (void *)zw_test);
+    unused(arg);
+    mon_widget_main_attr_set(MON_MAIN_ATTR_PROG, (void *)1);
 }
 
 
@@ -95,6 +96,7 @@ static void key_down_event(void *arg)
 **************************************************************************************************/
 static void key_ctrl_event(void *arg)
 {
+    unused(arg);
     LOG_I("%s", __func__);
     toggle_screen("main");
 }
@@ -119,6 +121,7 @@ gui_screen_t screen_detect_magentic = {
 **************************************************************************************************/
 void lsh_dbg_mon(int argc, char const *argv[])
 {
+    unused(argc);
     zw_test = atoi(argv[1]);
 }
 
