@@ -45,6 +45,7 @@ typedef struct _scr_detect_location_cxt {
 **************************************************************************************************/
 static void ble_topic_event(void *data, uint16_t len, void *priv)
 {
+    unused(len);
     scr_detect_location_cxt_t *cxt = priv;
     cxt->rssi = (*((int *)data));
 
@@ -61,6 +62,7 @@ static void ble_topic_event(void *data, uint16_t len, void *priv)
 **************************************************************************************************/
 static void screen_life_post(void *arg)
 {
+    unused(arg);
     scr_detect_location_cxt_t *cxt = calloc(sizeof(*cxt), 1);
 
     /* 创建 mon 并设置模式为扫描模式 */
@@ -118,6 +120,8 @@ static void do_fist_scan_work(scr_detect_location_cxt_t *cxt)
 **************************************************************************************************/
 static void update_mon_main_progress(scr_detect_location_cxt_t *cxt, int rssi)
 {
+    unused(cxt);
+
     int precent, val, range;
     int prog;
 
@@ -129,8 +133,6 @@ static void update_mon_main_progress(scr_detect_location_cxt_t *cxt, int rssi)
     /* 计算比分比 */
     precent = val * 100 / range;
     prog = precent * 16 / 100;
-
-    // LOG_I("rssi %d, prec %d, prog = %d", rssi, precent, prog);
 
     /* 更新进度条 */
     mon_widget_main_attr_set(MON_MAIN_ATTR_PROG, (void *)prog);
@@ -248,6 +250,7 @@ static screen_life_ops_t detect_location_sl_ops = {
 **************************************************************************************************/
 static void up_key_event(void *arg)
 {
+    unused(arg);
     LOG_I("%s", __func__);
 }
 
@@ -258,6 +261,7 @@ static void up_key_event(void *arg)
 **************************************************************************************************/
 static void down_key_event(void *arg)
 {
+    unused(arg);
     LOG_I("%s", __func__);
 }
 
@@ -268,6 +272,7 @@ static void down_key_event(void *arg)
 **************************************************************************************************/
 static void ctrl_key_event(void *arg)
 {
+    unused(arg);
     toggle_screen("main");
 }
 

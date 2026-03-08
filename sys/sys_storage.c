@@ -37,7 +37,7 @@ NRF_FSTORAGE_DEF(nrf_fstorage_t fstorage) = {
 **************************************************************************************************/
 static void sys_setting_first_init(system_setting_info_t *ssi)
 {
-    memset(ssi, 0, sizeof(ssi));
+    memset(ssi, 0, sizeof(*ssi));
     ssi->magic = MAGIC_SYS_INFO;
     ssi->flag_volume_key = 1;
     ssi->flag_volume_alarm = 1;

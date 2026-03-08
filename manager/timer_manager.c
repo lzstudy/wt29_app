@@ -180,6 +180,9 @@ void lsh_dbg_timer(int argc, char *argv[])
         timer_manager()->set_cycle(cycle);
         break;
 
+    default:
+        break;
+
     }
     
 }

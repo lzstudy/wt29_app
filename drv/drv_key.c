@@ -186,6 +186,9 @@ static void key_scan(void)
             on_key_short();
         }
     }
+    else {
+        LOG_I("unkonwn cmd");
+    } 
     
     key_last_state = current;   
 }

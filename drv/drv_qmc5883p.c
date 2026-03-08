@@ -171,6 +171,8 @@ int16_t qmc5883p_read_z(void)
 **************************************************************************************************/
 void lsh_dbg_qmc5883p(int argc, char *argv[])
 {
+    unused(argc);
+
     uint8_t value;
     uint8_t index = atoi(argv[1]);
 
@@ -253,7 +255,8 @@ static void i2c1_read(int argc, char const *argv[])
     len = strtol(argv[4], NULL, 0); 
     while(len--) 
     {
-        val = i2c_read(addr, reg++);
+        val = i2c_read(addr, reg);
+        reg++;
         printf("%02x ", val);
     }
     printf("\n");

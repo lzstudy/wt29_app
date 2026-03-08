@@ -132,6 +132,7 @@ static void key_down_event(void *arg)
 **************************************************************************************************/
 static void key_ctrl_event(void *arg)
 {
+    unused(arg);
     toggle_screen("main");
 }
 

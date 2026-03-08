@@ -5,6 +5,8 @@
 #include "common.h"
 #include "drv_sc7a20h.h"
 #include "app_error.h"
+#include "lsh.h"
+
 
 #define SC7A20H_ADDR            0x18                                            /**< I2C地址 */
 #define IIC_SCL	                NRF_GPIO_PIN_MAP(1, 9)
@@ -148,7 +150,6 @@ void sc7a20h_init(accel_cb_t cb)
 }
 
 /*================================================ I2C0控制 ================================================*/
-#include "lsh.h"
 
 /**************************************************************************************************
  * @brief  : 打印用法

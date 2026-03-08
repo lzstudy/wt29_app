@@ -2,13 +2,14 @@
 #include "app_error.h"
 #include "common.h"
 #include "drv_analog_device.h"
+#include "nrf_gpio.h"
 
 nrf_saadc_channel_config_t ch0_cfg = NRFX_SAADC_DEFAULT_CHANNEL_CONFIG_SE(NRF_SAADC_INPUT_AIN0);
 nrf_saadc_channel_config_t ch1_cfg = NRFX_SAADC_DEFAULT_CHANNEL_CONFIG_SE(NRF_SAADC_INPUT_AIN5);
 nrf_saadc_channel_config_t ch2_cfg = NRFX_SAADC_DEFAULT_CHANNEL_CONFIG_SE(NRF_SAADC_INPUT_AIN7);
 
 
-#include "nrf_gpio.h"
+
 /**************************************************************************************************
  * @brief  : adc采集句柄
  * @param  : None

@@ -6,6 +6,9 @@
 #include "msgbus_type.h"
 #include "msgbus_conf.h"
 #include "common.h"
+#include "lsh.h"
+#include "ctype.h"
+
 
 /* 遍历所有topic */
 #define list_for_each_topic(topic, head)   \
@@ -219,8 +222,6 @@ const msgbus_ops_t *msgbus(void)
 
 
 /*============================================== 命令行相关 ==============================================*/
-#include "lsh.h"
-#include "ctype.h"
 
 /**************************************************************************************************
  * @brief  : 打印用法
@@ -324,7 +325,7 @@ static void lsh_publish_topic(const char *name, const char *val)
     int data;
     char buf[200];
 
-    strncpy(buf, val, sizeof(val));
+    strncpy(buf, val, sizeof(buf));
 
     /* 按字符串发布  */
     if(!isdigit(val[0])) {

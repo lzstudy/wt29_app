@@ -10,6 +10,9 @@
 **************************************************************************************************/
 void lsh_cmd_ti(int argc, char const *argv[])
 {
+    unused(argc);
+    unused(argv);
+
     char buf[512];
 
     vTaskList(buf);

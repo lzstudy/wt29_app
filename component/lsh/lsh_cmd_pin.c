@@ -81,6 +81,6 @@ void lsh_cmd_pinmap(int argc, char const *argv[])
     pin = atoi(argv[2]);
 
     /* 计算结果 */
-    result = (port) << 5) | ((pin) & 0x1F);
+    result = ((port) << 5) | ((pin) & 0x1F);
     LOG_I("%d", result);
 }
