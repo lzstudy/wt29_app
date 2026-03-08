@@ -322,10 +322,13 @@ static cmd_opt_map_t topic_map_tbl[] = {
 static void lsh_publish_topic(const char *name, const char *val)
 {
     int data;
+    char buf[200];
+
+    strncpy(buf, val, sizeof(val));
 
     /* 按字符串发布  */
     if(!isdigit(val[0])) {
-        msgbus_publish_topic(name, (void *)val, strlen(val));
+        msgbus_publish_topic(name, (void *)buf, strlen(buf));
         return;
     }
 
