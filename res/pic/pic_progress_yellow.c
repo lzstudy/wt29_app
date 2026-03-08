@@ -1,0 +1,47 @@
+#include "lvgl.h"
+
+
+#ifndef LV_ATTRIBUTE_MEM_ALIGN
+#define LV_ATTRIBUTE_MEM_ALIGN
+#endif
+
+#ifndef LV_ATTRIBUTE_IMG_PIC_PROGRESS_YELLOW
+#define LV_ATTRIBUTE_IMG_PIC_PROGRESS_YELLOW
+#endif
+
+const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_PIC_PROGRESS_YELLOW uint8_t pic_progress_yellow_map[] = {
+  0x00, 0xf5, 0xfe, 0xff, 	/*Color of index 0*/
+  0x00, 0x00, 0x00, 0x00, 	/*Color of index 1*/
+  0x00, 0x00, 0x00, 0x00, 	/*Color of index 2*/
+  0x00, 0x00, 0x00, 0x00, 	/*Color of index 3*/
+  0x00, 0x00, 0x00, 0x00, 	/*Color of index 4*/
+  0x00, 0x00, 0x00, 0x00, 	/*Color of index 5*/
+  0x00, 0x00, 0x00, 0x00, 	/*Color of index 6*/
+  0x00, 0x00, 0x00, 0x00, 	/*Color of index 7*/
+  0x00, 0x00, 0x00, 0x00, 	/*Color of index 8*/
+  0x00, 0x00, 0x00, 0x00, 	/*Color of index 9*/
+  0x00, 0x00, 0x00, 0x00, 	/*Color of index 10*/
+  0x00, 0x00, 0x00, 0x00, 	/*Color of index 11*/
+  0x00, 0x00, 0x00, 0x00, 	/*Color of index 12*/
+  0x00, 0x00, 0x00, 0x00, 	/*Color of index 13*/
+  0x00, 0x00, 0x00, 0x00, 	/*Color of index 14*/
+  0x00, 0x00, 0x00, 0x00, 	/*Color of index 15*/
+
+  0x00, 
+  0x00, 
+  0x00, 
+  0x00, 
+  0x00, 
+  0x00, 
+  0x00, 
+};
+
+const lv_img_dsc_t pic_progress_yellow = {
+  .header.cf = LV_IMG_CF_INDEXED_4BIT,
+  .header.always_zero = 0,
+  .header.reserved = 0,
+  .header.w = 2,
+  .header.h = 7,
+  .data_size = 71,
+  .data = pic_progress_yellow_map,
+};
