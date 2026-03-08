@@ -7,10 +7,6 @@
 
 #define SN_MAGIC_NUMBER         0x1B3E579D2F4A8C61ULL 
 
-/* 使用寄存器第0个和第1个作为SN存储位置 */
-#define UICR_SN_ADDR_0          ((uint32_t)&NRF_UICR->CUSTOMER[0])
-#define UICR_SN_ADDR_1          ((uint32_t)&NRF_UICR->CUSTOMER[1])
-
 /**************************************************************************************************
  * @brief  : 打印用法
  * @param  : None
@@ -35,21 +31,6 @@ static uint64_t get_cpuid_info(void)
 	
 	return ((uint64_t)cpuid_h << 32) | cpuid_l;
 }
-
-#if 0
-/**************************************************************************************************
- * @brief  : 获取SN信息
- * @param  : None
- * @return : None
-**************************************************************************************************/
-static uint64_t get_sn_info(void)
-{
-    uint32_t sn_h = NRF_UICR->CUSTOMER[0];
-    uint32_t sn_l = NRF_UICR->CUSTOMER[1];
-
-    return ((uint64_t)sn_h << 32) | sn_l;
-}
-#endif
 
 /**************************************************************************************************
  * @brief  : 计算SN (简单的哈希算法)
@@ -100,11 +81,6 @@ static void write_sn_info(uint64_t sn)
     NRF_NVMC->CONFIG = NVMC_CONFIG_WEN_Wen;
     while (NRF_NVMC->READY == NVMC_READY_READY_Busy) {}
 		
-    // 3. 执行写入（实际是位编程，只能将1变为0）
-    // NRF_UICR->CUSTOMER[0] = sn_h;
-    // NRF_UICR->CUSTOMER[1] = sn_l;
-
-
 
     // 4. 等待写入完成
     while (NRF_NVMC->READY == NVMC_READY_READY_Busy) {}
@@ -122,6 +98,8 @@ static void write_sn_info(uint64_t sn)
 **************************************************************************************************/
 static void print_cpu_info(int argc, char const *argv[])
 {    
+    unused(argc);
+    unused(argv);
     LOG_I("cpuid: %llx", get_cpuid_info());
 }
 
@@ -132,20 +110,9 @@ static void print_cpu_info(int argc, char const *argv[])
 **************************************************************************************************/
 static void sn_info_earse(int argc, char const *argv[])
 {
+    unused(argc);
+    unused(argv);
     earse_sn_info();
-#if 0
-    NRF_NVMC->CONFIG = NVMC_CONFIG_WEN_Wen;
-    while (NRF_NVMC->READY == NVMC_READY_READY_Busy) {}
-
-    NRF_NVMC->ERASEUICR = 0x01;
-		
-    // 4. 等待写入完成
-    while (NRF_NVMC->READY == NVMC_READY_READY_Busy) {}
-
-    // 5. 关闭写使能
-    NRF_NVMC->CONFIG = NVMC_CONFIG_WEN_Ren;
-    while (NRF_NVMC->READY == NVMC_READY_READY_Busy) {}
-#endif
 }
 
 /**************************************************************************************************
@@ -155,7 +122,8 @@ static void sn_info_earse(int argc, char const *argv[])
 **************************************************************************************************/
 static void generate_sn(int argc, char const *argv[])
 {
-	uint64_t cpuid, sn;
+	uint64_t cpuid;
+    uint64_t sn;
 
     /* 获取cpuid */
     cpuid = get_cpuid_info();			    // 获取芯片ID

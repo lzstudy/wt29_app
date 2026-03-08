@@ -34,6 +34,9 @@ static void pin_quick_cmd(int argc, char const *argv[])
     case 3:
         nrf_gpio_pin_write(pin, val);
         break;
+
+    default:
+        break;
     }
 }
 
@@ -65,7 +68,8 @@ void lsh_cmd_pin(int argc, char const *argv[])
 **************************************************************************************************/
 void lsh_cmd_pinmap(int argc, char const *argv[])
 {
-    uint32_t port, pin;
+    uint32_t port;
+    uint32_t pin;
     uint32_t result;
 
     if(argc < 2) {
@@ -77,6 +81,6 @@ void lsh_cmd_pinmap(int argc, char const *argv[])
     pin = atoi(argv[2]);
 
     /* 计算结果 */
-    result = (((port) << 5) | ((pin) & 0x1F));
+    result = ((port) << 5) | ((pin) & 0x1F);
     LOG_I("%d", result);
 }
