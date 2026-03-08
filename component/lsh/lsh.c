@@ -66,9 +66,8 @@ void lsh_cmd_help(int argc, char *argv[])
  * @param  : None
  * @return : None
 **************************************************************************************************/
-int process_cmd_sys(lsh_context *cxt, int argc, char *argv[])
+int process_cmd_sys(int argc, char *argv[])
 {
-    unused(cxt);
 
     char ch;
     char *cmd;
@@ -104,7 +103,7 @@ void lsh_process_cmd(lsh_context *cxt, int argc, char *argv[])
 {
     lsh_mgc_lsh *mgc = &cxt->mgc_lsh;
 
-    if(process_cmd_sys(cxt, argc, argv))
+    if(process_cmd_sys(argc, argv))
         return;
 
     printf("%s: command not found\n", mgc->line_bak);

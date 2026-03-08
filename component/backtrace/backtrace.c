@@ -42,16 +42,4 @@ static void uart_reinit(void)
     nrfx_uarte_tx(&uart, "hello\n", 6);
 }
 
-/**************************************************************************************************
- * @brief  : 主函数入库
- * @param  : None
- * @return : None
-**************************************************************************************************/
-void hardfault_handler(uint32_t *stack_address)
-{
-    unused(stack_address);
-#if 0
-    uart_reinit();
-#endif
-}
 
